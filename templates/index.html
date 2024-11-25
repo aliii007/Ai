@@ -1,0 +1,29 @@
+
+{% extends "base.html" %}
+{% block content %}
+<h1>Welcome to the AI Assistant</h1>
+{% if current_user.is_authenticated %}
+<div id="chat-container">
+    <div id="chat-window">
+        <!-- Messages will be appended here -->
+    </div>
+    <div id="input-area">
+        <textarea id="user-input" placeholder="Type your message here..."></textarea>
+        <button id="send-button">Send</button>
+        <button id="voice-button">🎤</button>
+    </div>
+    <div id="mode-toggle">
+        <label for="mode-select">Mode:</label>
+        <select id="mode-select">
+            <option value="logic">Logic Mode</option>
+            <option value="emotion">Emotion Mode</option>
+        </select>
+    </div>
+</div>
+<script>
+    // JavaScript code to handle chat interactions will go here
+</script>
+{% else %}
+<p>Please <a href="{{ url_for('login') }}">login</a> to interact with the AI Assistant.</p>
+{% endif %}
+{% endblock %}
